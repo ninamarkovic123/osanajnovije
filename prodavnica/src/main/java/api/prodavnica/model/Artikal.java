@@ -41,7 +41,7 @@ public class Artikal implements Serializable {
 	@Column(name="path", unique = false, nullable = true)
 	private String path;
 
-	@OneToMany(cascade= {CascadeType.ALL}, fetch = FetchType.LAZY, mappedBy = "article")
+	@OneToMany(cascade= {CascadeType.ALL}, fetch = FetchType.LAZY, mappedBy = "artikal")
 	private Set<Stavka> stavke = new HashSet<Stavka>();
 		
 	@ManyToMany(cascade = {CascadeType.ALL})
@@ -49,7 +49,7 @@ public class Artikal implements Serializable {
 				joinColumns = {@JoinColumn(name = "id")},
 				inverseJoinColumns = {@JoinColumn(name="prodajaId")}
 			)
-	private Set<Prodaja> prodaje = new HashSet<Prodaja>();
+	private Set<Prodaja> prodaja = new HashSet<Prodaja>();
 	
 	@Column(name="deleted", unique = false, nullable = false)
 	private Boolean deleted;
@@ -71,7 +71,7 @@ public class Artikal implements Serializable {
 		this.oznakaArtikla = oznakaArtikla;
 		this.path = path;
 		this.stavke = stavke;
-		this.prodaje = prodaje;
+		this.prodaja = prodaje;
 	}
 
 	public Artikal(Long id, String nazivArtikla, String opisArtikla, Double oznakaArtikla, String path) {
@@ -84,7 +84,7 @@ public class Artikal implements Serializable {
 	}
 
 	public Artikal(Long id, String nazivArtikla, String opisArtikla, Double oznakaArtikla, String path,
-			Set<Stavka> stavke, Set<Prodaja> prodaje, Boolean deleted, Prodavac prodavac) {
+			Set<Stavka> stavke, Set<Prodaja> prodaja, Boolean deleted, Prodavac prodavac) {
 		super();
 		this.id = id;
 		this.nazivArtikla = nazivArtikla;
@@ -92,7 +92,7 @@ public class Artikal implements Serializable {
 		this.oznakaArtikla = oznakaArtikla;
 		this.path = path;
 		this.stavke = stavke;
-		this.prodaje = prodaje;
+		this.prodaja = prodaja;
 		this.deleted = deleted;
 		this.prodavac = prodavac;
 	}
@@ -145,12 +145,12 @@ public class Artikal implements Serializable {
 		this.stavke = stavke;
 	}
 
-	public Set<Prodaja> getProdaje() {
-		return prodaje;
+	public Set<Prodaja> getProdaja() {
+		return prodaja;
 	}
 
-	public void setProdaje(Set<Prodaja> prodaje) {
-		this.prodaje = prodaje;
+	public void setProdaja(Set<Prodaja> prodaja) {
+		this.prodaja = prodaja;
 	}
 
 	public Boolean getDeleted() {
