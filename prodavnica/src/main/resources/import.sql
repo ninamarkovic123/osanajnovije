@@ -5,4 +5,4 @@ insert into artikli(id,opis_artikla,oznaka_artikla,naziv_artikla,path,deleted,ko
 
 insert into prodaja_artikla values (1,1)
 
-insert into korisnici(tip, korisnik_id, ime, prezime, lozinka, tip_korisnika, blocked,  korisnickoime, adresa, datum_od,email, naziv) values ('Prodavac',1, 'a', 'a', 'a', 1, 0, 'a', 'a', '2021-08-05', 'a','a')
+insert into korisnici(korisnik_id, ime, prezime, korisnickoime, lozinka, tip_korisnika, blocked, datum_od, email, naziv) values (1, 'a', 'a', 'a', 'a', 1, 0, '2021-08-05', 'a', 'a')

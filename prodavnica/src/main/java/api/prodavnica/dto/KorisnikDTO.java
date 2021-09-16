@@ -7,7 +7,7 @@ import api.prodavnica.model.TipKorisnika;
 
 @SuppressWarnings("serial")
 public class KorisnikDTO implements Serializable {
-private Long id;
+	private Long id;
 	
 	private String ime;
 
