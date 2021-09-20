@@ -6,7 +6,7 @@ import api.prodavnica.model.Artikal;
 
 public interface ArtikalServiceInterface {
 	
-	Artikal findOne(Long artikalId);
+	Artikal findOne(Long artikal_id);
 	
 	Artikal save(Artikal artikal);
 	

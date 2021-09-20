@@ -121,8 +121,8 @@ public class Prodaja implements Serializable{
 		return prodavac;
 	}
 
-	public void setProdavac(Prodavac prodavac) {
-		this.prodavac = prodavac;
+	public void setProdavac(Korisnik korisnik) {
+		this.prodavac = (Prodavac) korisnik;
 	}
 
 	public static long getSerialversionuid() {

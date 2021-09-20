@@ -17,8 +17,8 @@ public class ArtikalService implements ArtikalServiceInterface{
 	
 
 	@Override
-	public Artikal findOne(Long artikalId) {
-		return artikalRepository.getOne(artikalId);
+	public Artikal findOne(Long artikal_id) {
+		return artikalRepository.getOne(artikal_id);
 	}
 
 	@Override
