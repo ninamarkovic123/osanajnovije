@@ -6,5 +6,6 @@ import api.prodavnica.model.Korisnik;
 
 @Repository
 public interface KorisnikRepository extends JpaRepository<Korisnik, Long> {
-	 //Korisnik findByKorisnickoimeLozinka(String korisnickoime, String lozinka);
+	Korisnik findByKorisnickoimeAndLozinka(String korisnickoime, String lozinka);
+
 }

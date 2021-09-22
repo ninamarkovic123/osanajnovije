@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import api.prodavnica.converter.KorisnikKonverter;
+import api.prodavnica.service.KorisnikServiceInterface;
 import api.prodavnica.service.KupacServiceInterface;
 import api.prodavnica.service.ProdavacServiceInterface;
 import api.prodavnica.dto.KorisnikDTO;
+import api.prodavnica.model.Korisnik;
 import api.prodavnica.model.Kupac;
 import api.prodavnica.model.Prodavac;
 import api.prodavnica.model.TipKorisnika;
@@ -30,6 +32,9 @@ public class KorisnikController {
 	private ProdavacServiceInterface prodavacServiceInterface;
 	
 	@Autowired
+	private KorisnikServiceInterface service;
+	
+	@Autowired
 	KorisnikKonverter korisnikKonverter;
 	
 	@GetMapping(value="/all")
@@ -41,6 +46,19 @@ public class KorisnikController {
 		}
 		return new ResponseEntity<List<KorisnikDTO>>(prodavciDTO, HttpStatus.OK);
 	}
+	@PostMapping(consumes="application/json")
+	public ResponseEntity<KorisnikDTO> login(@RequestBody KorisnikDTO korisnikDTO){
+		Korisnik k = service.findByKorisnickoimeAndLozinka(korisnikDTO.getKorisnickoime(),korisnikDTO.getLozinka());
+		if (k==null) {
+			return new ResponseEntity<KorisnikDTO>(HttpStatus.NOT_FOUND); 
+		}else {
+			KorisnikDTO kDTO = new KorisnikDTO();
+			kDTO.setKorisnickoime(k.getKorisnickoime());
+
+			return new ResponseEntity<KorisnikDTO>(kDTO, HttpStatus.OK);
+		}
+	}
+	
 	
 	@PostMapping(consumes = "application/json", value = "/add")
 	public ResponseEntity<KorisnikDTO> register(@RequestBody KorisnikDTO kDTO){

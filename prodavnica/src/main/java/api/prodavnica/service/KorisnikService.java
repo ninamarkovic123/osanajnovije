@@ -32,11 +32,13 @@ public class KorisnikService implements KorisnikServiceInterface{
 		return kr.findAll();
 	}
 
+	@Override
+	public Korisnik findByKorisnickoimeAndLozinka(String korisnickoime, String lozinka) {
+		// TODO Auto-generated method stubreturn userRepository.findByUsernameAndPassword(username, password);
+		return kr.findByKorisnickoimeAndLozinka(korisnickoime, lozinka);
+	}
 
 
-//	@Override
-//	public Korisnik findByKorisnickoimeILozinka(String korisnickoime, String lozinka) {
-	//	return kr.findByKorisnickoimeLozinka(korisnickoime, lozinka);
-	//}
+
 
 }

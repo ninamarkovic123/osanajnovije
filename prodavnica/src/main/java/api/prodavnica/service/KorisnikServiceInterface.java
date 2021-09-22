@@ -14,5 +14,6 @@ public interface KorisnikServiceInterface {
 	
 	List<Korisnik> findAll();
 	
-	//Korisnik findByKorisnickoimeILozinka(String korisnickoime, String lozinka);
+	Korisnik findByKorisnickoimeAndLozinka(String korisnickoime, String lozinka);
+	
 }
